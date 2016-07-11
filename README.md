@@ -1,2 +1,2 @@
 # portfolio
-Doug's Professional Porfolio
+Doug's Professional Portfolio
