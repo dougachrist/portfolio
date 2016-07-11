@@ -1,0 +1,13 @@
+.myName {
+  margin-left: 2em;
+  background-image: url('images/cloud.jpg');
+  background-repeat: no-repeat;
+  height: 5em;
+  width: 25%;
+  color: green;
+  box-shadow: 0 0 1em 1em white;
+  }
+/*
+#backgroundimg {
+  background-image: url('cloud.jpg');
+}*/

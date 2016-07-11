@@ -1,0 +1,8 @@
+img {
+  max-width: 100%;
+}
+
+header {
+  background-image: url('images/headerBackground.jpg');
+  background-repeat: no-repeat;
+}
