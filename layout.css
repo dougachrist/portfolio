@@ -4,24 +4,24 @@
   box-shadow: inset 0 0 1em 1em gray;
   text-align: center;
   float: left;
-  }
+}
 
 nav {
   display: inline;
   float: right;
-  margin-right: 2%;
-  margin-top: 2%;
-  }
+  margin-right: 3%;
+  margin-top: 3%;
+}
 
-  .myName h1 {
+.myName h1 {
     margin-top: 1em;
     color: #c0c0c0;
     padding: .5em;
     text-shadow: 1px 1px black;
     font-size: 1.25em;
-  }
+}
 
-  .myName h2 {
+.myName h2 {
     color: #c0c0c0;
     padding: .5em;
     padding-right: 2em;
@@ -42,4 +42,8 @@ section {
 
 .blogText {
   display: none;
+}
+
+.bottomBox{
+  margin-top: .45em;
 }
