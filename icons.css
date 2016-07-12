@@ -1,10 +1,10 @@
 @font-face {
     font-family: 'icomoon';
-    src:    url('styles/fonts/icomoon.eot?sqsgeb');
-    src:    url('styles/fonts/icomoon.eot?sqsgeb#iefix') format('embedded-opentype'),
-        url('styles/fonts/icomoon.ttf?sqsgeb') format('truetype'),
-        url('styles/fonts/icomoon.woff?sqsgeb') format('woff'),
-        url('styles/fonts/icomoon.svg?sqsgeb#icomoon') format('svg');
+    src:    url('styles/fonts/icomoon.eot?91vqq');
+    src:    url('styles/fonts/icomoon.eot?91vqq#iefix') format('embedded-opentype'),
+        url('styles/fonts/icomoon.ttf?91vqq') format('truetype'),
+        url('styles/fonts/icomoon.woff?91vqq') format('woff'),
+        url('styles/fonts/icomoon.svg?91vqq#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -24,6 +24,29 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-home3:before {
+    content: "\e902";
+    margin-right: .25em;
+}
+.icon-user-tie:before {
+    content: "\e976";
+    margin-right: .25em;
+}
+.icon-youtube:before {
+    content: "\ea9d";
+}
+.icon-wordpress:before {
+    content: "\eab4";
+    margin-right: .25em;
+}
+.icon-newspaper:before {
+    content: "\e904";
+    margin-right: .25em;
+}
+.icon-envelop:before {
+    content: "\e945";
+    margin-right: .25em;
+}
 .icon-menu:before {
     content: "\e9bd";
     font-size: 2em;
