@@ -2,13 +2,20 @@
   margin-left: 2em;
   background-image: url('images/cloud.jpg');
   background-repeat: no-repeat;
-  height: 100%;
   width: 70%;
   color: green;
-  /*box-shadow: 0 0 1em 1em white;*/
+  box-shadow: inset 0 0 .5em .5em gray;
   padding-top: 1em;
   font-size: 1.25em;
   color: #c0c0c0;
   text-align: center;
   text-shadow: 1px 1px black;
+  float: left;
+  }
+
+nav {
+  display: inline;
+  float: right;
+  margin-right: 2%;
+  margin-top: 2%;
   }

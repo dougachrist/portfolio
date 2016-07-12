@@ -3,7 +3,8 @@ img {
 }
 
 header {
-  background-image: url('images/headerBackground.jpg');
-  background-repeat: no-repeat;
+  /*background-image: url('images/headerBackground.jpg');
+  background-repeat: no-repeat;*/
+  background-color: gray;
   height: 5em;
 }
