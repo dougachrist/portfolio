@@ -41,6 +41,16 @@ section {
   max-width: 100%;
 }
 
+section:last-child {
+  /*overflow: auto;*/
+  margin-bottom: 4em;
+
+}
+
+img:hover {
+  border: .5em solid orange;
+}
+
 .blogText {
   display: none;
 }
