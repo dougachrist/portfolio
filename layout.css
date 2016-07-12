@@ -42,13 +42,12 @@ section {
 }
 
 section:last-child {
-  /*overflow: auto;*/
   margin-bottom: 4em;
 
 }
 
 img:hover {
-  border: .5em solid orange;
+  border: .2em solid orange;
 }
 
 .blogText {
