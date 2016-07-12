@@ -2,12 +2,13 @@
   margin-left: 2em;
   background-image: url('images/cloud.jpg');
   background-repeat: no-repeat;
-  height: 5em;
-  width: 25%;
+  height: 100%;
+  width: 70%;
   color: green;
-  box-shadow: 0 0 1em 1em white;
+  /*box-shadow: 0 0 1em 1em white;*/
+  padding-top: 1em;
+  font-size: 1.25em;
+  color: #c0c0c0;
+  text-align: center;
+  text-shadow: 1px 1px black;
   }
-/*
-#backgroundimg {
-  background-image: url('cloud.jpg');
-}*/
