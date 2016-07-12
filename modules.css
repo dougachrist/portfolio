@@ -13,7 +13,7 @@ nav ul {
   list-style: none;
 }
 
-nav:hover ul {
+nav.activeState ul {
   display: block;
   float: right;
 }
