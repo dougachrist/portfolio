@@ -1,0 +1,57 @@
+section h1 {
+  font-size: 1.5em;
+  margin: .25em;
+}
+
+.bottomBox li {
+  display: inline;
+  margin: 10%;
+}
+
+nav ul {
+  display: none;
+  list-style: none;
+}
+
+nav:hover ul {
+  display: block;
+  float: right;
+}
+
+nav li {
+  text-align: center;
+  padding: .5em;
+  border: 1px solid black;
+}
+
+@media only screen and (min-width: 640px) {
+  .icon-menu {
+     display: none;
+  }
+
+  nav ul {
+    display: block;
+    float: right;
+  }
+  nav li {
+    display: inline;
+    float: right;
+  }
+
+  section {
+    text-align: left;
+    width: 80%;
+  }
+
+  section:last-child {
+    overflow: hidden;
+  }
+
+  section img {
+    float: left;
+  }
+
+  .blogText{
+    display: inline;
+  }
+}
