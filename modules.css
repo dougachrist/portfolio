@@ -7,3 +7,19 @@ section h1 {
   display: inline;
   margin: 10%;
 }
+
+nav ul {
+  display: none;
+  list-style: none;
+}
+
+nav:hover ul {
+  display: block;
+  float: right;
+}
+
+nav li {
+  text-align: center;
+  padding: .5em;
+  border: 1px solid black;
+}

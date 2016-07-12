@@ -9,8 +9,9 @@
 nav {
   display: inline;
   float: right;
-  margin-right: 3%;
   margin-top: 3%;
+  margin-right: 3%;
+  text-align: right;
 }
 
 .myName h1 {
