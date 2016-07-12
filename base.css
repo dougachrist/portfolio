@@ -23,3 +23,7 @@ footer {
   height: 3em;
   text-align: center;
 }
+
+a:link, a:visited {
+  text-decoration: none;
+}
