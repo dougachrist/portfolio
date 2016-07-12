@@ -30,4 +30,9 @@ nav {
     text-shadow: 1px 1px black;
     font-size: 1.25em;
     margin-top: -1em;
-  }
+}
+
+section {
+  margin-bottom: 2em;
+  clear: both;
+}
