@@ -1,10 +1,20 @@
 .myName {
-  background-image: url('images/cloud.jpg');
-  background-repeat: no-repeat;
-  box-shadow: inset 0 0 1em 1em gray;
   text-align: center;
   float: left;
   max-width: 60%;
+}
+
+.starfish {
+  text-align: center;
+  clear: both;
+  display: inline;
+}
+
+.starfish img {
+  display: none;
+  margin-top: 3em;
+  width: 3em;
+  height: 3em;
 }
 
 nav {
@@ -17,14 +27,14 @@ nav {
 
 .myName h1 {
     margin-top: 1em;
-    color: #c0c0c0;
+    color: #CF5300;
     padding: .5em;
     text-shadow: 1px 1px black;
     font-size: 1.25em;
 }
 
 .myName h2 {
-    color: #c0c0c0;
+    color: #CF5300;
     padding: .5em;
     padding-right: 2em;
     padding-left: 2em;
@@ -35,11 +45,12 @@ nav {
 }
 
 section {
+  padding: 1em;
   margin-bottom: 2em;
   width: 25em;
   margin: 0 auto;
   text-align: center;
-  max-width: 100%;
+  max-width: 90%;
 }
 
 section:last-child {
@@ -52,7 +63,14 @@ section time {
   color: #7e7e7e;
 }
 
-img:hover {
+section img {
+  width: 20em;
+  max-width: 90%;
+  cursor: pointer;
+  border: .2em solid black;
+}
+
+section img:hover {
   border: .2em solid orange;
 }
 
@@ -61,5 +79,9 @@ img:hover {
 }
 
 .bottomBox{
-  margin-top: .45em;
+  margin-top: 2.45em;
+}
+
+i {
+  font-style: italic;
 }

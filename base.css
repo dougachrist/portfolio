@@ -1,26 +1,25 @@
 img {
-  width: 20em;
   max-width: 90%;
-  cursor: pointer;
-  border: .2em solid black;
 }
 
 body {
-  background-color: #d3d3d3;
+  /*background-color: #d3d3d3;*/
+  background-image: url("images/sandBackground.jpg");
 }
 
 header {
-  background-color: gray;
   width: 100%;
   display: inline-block;
+  background: linear-gradient(rgba(173,216,230,50),rgba(0,0,0,0));
 }
 
 footer {
-  background-color: gray;
+
+  background: linear-gradient(rgba(0,0,0,0) ,rgba(185,156,107,75) 50%);
   position: fixed;
   bottom: 0px;
   width: 100%;
-  height: 3em;
+  height: 5em;
   text-align: center;
 }
 

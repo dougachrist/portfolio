@@ -1,6 +1,7 @@
 $(document).ready( function() {
   $('nav').click(function() {
     $(this).toggleClass('activeState');
+    $('.starfish img').slideToggle(350);
   });
 });
 
