@@ -24,6 +24,10 @@ footer {
   text-align: center;
 }
 
+.template {
+  display: none;
+}
+
 a:link, a:visited {
   text-decoration: none;
   color: black;

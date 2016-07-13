@@ -41,11 +41,13 @@ nav li {
   section {
     text-align: left;
     width: 80%;
+    overflow: hidden;
+    margin-bottom: 2em;
   }
 
-  section:last-child {
+  /*section:last-child {
     overflow: hidden;
-  }
+  }*/
 
   section img {
     margin-right: 1em;
