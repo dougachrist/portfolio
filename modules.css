@@ -53,6 +53,7 @@ nav li {
   }
 
   .blogText{
+    float: none;
     display: inline;
   }
 }
