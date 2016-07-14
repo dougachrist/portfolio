@@ -11,3 +11,6 @@ https://cdn4.iconfinder.com/data/icons/wirecons-free-vector-icons/32/menu-alt-51
 
 icons:
 https://icomoon.io/
+
+starfish
+http://worldartsme.com/images/starfish-free-clipart-1.jpg
