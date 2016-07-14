@@ -29,6 +29,10 @@ nav li {
     display: none;
   }
 
+  div.starfish {
+    display: inline;
+  }
+
   nav ul {
     display: block;
     float: right;
@@ -39,8 +43,6 @@ nav li {
   }
 
   section {
-    background-color: rgba(255,255,255,.2);
-    box-shadow: 0 0 20em rgba(255,255,255,.2);
     text-align: left;
     width: 80%;
     overflow: hidden;
@@ -53,6 +55,7 @@ nav li {
   }
 
   .blogText{
+    float: none;
     display: inline;
   }
 }
