@@ -29,6 +29,10 @@ nav li {
     display: none;
   }
 
+  div.starfish {
+    display: inline;
+  }
+
   nav ul {
     display: block;
     float: right;
