@@ -77,6 +77,10 @@ section img:hover {
   border: .2em solid orange;
 }
 
+.icon-menu {
+  cursor: pointer;
+}
+
 .blogText {
   float: left;
 }
@@ -87,4 +91,8 @@ section img:hover {
 
 i {
   font-style: italic;
+}
+
+textarea {
+  width: 75%;
 }
