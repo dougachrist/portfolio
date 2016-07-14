@@ -45,28 +45,24 @@ function loadProjects() {
   $('div.blogText').find('p').nextAll().hide();
   var $button = $('<button>Read More</button>');
   $button.addClass('collapsed');
-  $('section').append($button);
-  $(document).on('click', '.collapsed', function() {
-    $(this).prev().find('p').nextAll().show();
-    $(this).text('Read More');
-    $(this).removeAttr('class');
-    $(this).addClass('expanded');
-  });
+  $('section').not('.template').append($button);
 
-  $(document).on('click', '.expanded', function() {
-    $(this).prev().find('p').nextAll().hide();
-    $(this).text('Show Less');
-    $(this).removeAttr('class');
-    $(this).addClass('collapsed');
-    console.log(this);
-  });
-
-
-  // $('button').on('click', function(event) {
-  //   console.log('this is running');
-  //   $(this).attr('alt','collapsed');
-  //   $(this).prev().find('p').nextAll().hide();
+  // $('div.blogText').find('p').nextAll().hide();
+  // var $button = $('<button>Read More</button>');
+  // $button.addClass('collapsed');
+  // $('section').append($button);
+  // $(document).on('click', '.collapsed', function() {
+  //   $(this).prev().find('p').nextAll().show();
   //   $(this).text('Read More');
+  //   $(this).removeAttr('class');
+  //   $(this).addClass('expanded');
+  // });
+  //
+  // $(document).on('click', '.expanded', function() {
+  //   $(this).prev().find('p').nextAll().hide();
+  //   $(this).text('Show Less');
+  //   $(this).removeAttr('class');
+  //   $(this).addClass('collapsed');
   // });
 
 }
