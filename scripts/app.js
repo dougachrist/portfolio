@@ -1,8 +1,10 @@
 $(document).ready( function() {
   loadHome();
-  $('nav').click(function() {
-    $(this).toggleClass('activeState');
-    $('.starfish img').slideToggle(350);
+  $('nav').click(function(event) {
+    if ($(window).width() < 640) {
+      $(this).toggleClass('activeState');
+      $('.starfish').slideToggle(350);
+    }
   });
 });
 
@@ -77,7 +79,7 @@ function loadBio() {
 function loadContacts() {
   var $section = $('<section></section>');
   var $form = $('<form><fieldset></fieldset></form>');
-  var $textarea = $('<textarea><textarea>');
+  var $textarea = $('<textarea placeholder="write something nice here.." ></textarea>');
   $form.append($textarea);
   var $h1 = $('<h1></h1>');
   $h1.text('Contact Me');

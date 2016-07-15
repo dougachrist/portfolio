@@ -4,7 +4,7 @@ img {
 
 body {
   /*background-color: #d3d3d3;*/
-  background-image: url("images/sandBackground.jpg");
+  background-image: url("../images/sandBackground.jpg");
 }
 
 header {
@@ -30,6 +30,11 @@ footer {
 a:link, a:visited {
   text-decoration: none;
   color: black;
+}
+
+h2 {
+  font-family: 'Rasa', serif;
+  font-size: 1.75em;
 }
 
 p {

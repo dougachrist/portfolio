@@ -1,18 +1,28 @@
 .myName {
+  margin-left: 7%;
   text-align: center;
   float: left;
-  max-width: 60%;
+  width: 35%;
 }
 
 .starfish {
-  text-align: center;
-  clear: both;
-  display: inline;
+  display: none;
+  margin: 0 auto;
+  margin-top: 1em;
 }
 
 .starfish img {
+  width: 3em;
+  height: 3em;
+}
+
+.secondStarfish {
   display: none;
-  margin-top: 3em;
+  margin: 0 auto;
+  margin-top: 1em;
+}
+
+.secondStarfish img {
   width: 3em;
   height: 3em;
 }
@@ -20,7 +30,7 @@
 nav {
   display: inline;
   float: right;
-  margin-top: 3%;
+  margin-top: .75em;
   margin-right: 3%;
   text-align: right;
 }
@@ -36,7 +46,7 @@ nav {
 section {
   background-color: rgba(255,255,255,.2);
   box-shadow: 0 0 2em 2em rgba(255,255,255,.2);
-  padding: 1em;
+  padding: .5em;
   width: 25em;
   margin: 0 auto;
   text-align: center;
@@ -87,5 +97,7 @@ i {
 }
 
 textarea {
+  margin-top: 1em;
   width: 75%;
+  height: 10em;
 }
