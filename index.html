@@ -4,17 +4,30 @@
     <meta charset="UTF-8">
     <title>Doug Christ</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Candal|Cherry+Cream+Soda|Rasa" rel="stylesheet">
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="icons.css">
     <link rel="stylesheet" href="base.css">
     <link rel="stylesheet" href="layout.css">
     <link rel="stylesheet" href="modules.css">
+    <script id="blog-template" type="text/x-handlebars-template">
+      <section>
+        <h1>{{title}}</h1>
+        <div>
+          <h2>{{author}}</h2>
+          <time pubdate datetime="{{publishedDate}}">{{publishStatus}}</time>
+        </div>
+        <img src="{{img}}">
+        <div class="blogText">
+          {{{narrativeHTML}}}
+        </div>
+      </section>
+    </script>
   </head>
   <body>
     <header>
       <div class="myName">
         <h1>DOUG CHRIST</h1>
-        <h2>professional portfolio</h2>
       </div>
       <nav>
         <div class ="icon-menu"></div>
@@ -30,17 +43,6 @@
       </div>
     </header>
     <main>
-      <section class="template">
-        <h1>Title</h1>
-        <div>
-          <h2>Author</h2>
-          <time pubdate datetime="2000-01-01">Publish Time</time>
-        </div>
-        <img src="images/hawaii.jpg">
-        <div class="blogText">
-          <p> Blog text.</p>
-        </div>
-      </section>
     </main>
     <footer>
       <div class="bottomBox">
@@ -52,6 +54,7 @@
       </div>
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/handlebarsjs/4.0.5/handlebars.min.js"></script>
     <script src="blogArticles.js"></script>
     <script src="app.js"></script>
     <script src="home.js"></script>

@@ -31,3 +31,8 @@ a:link, a:visited {
   text-decoration: none;
   color: black;
 }
+
+p {
+  font-family: 'Rasa', serif;
+  font-size: 1.5em;
+}

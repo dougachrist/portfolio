@@ -26,22 +26,11 @@ nav {
 }
 
 .myName h1 {
-    margin-top: 1em;
     color: #CF5300;
     padding: .5em;
     text-shadow: 1px 1px black;
-    font-size: 1.25em;
-}
-
-.myName h2 {
-    color: #CF5300;
-    padding: .5em;
-    padding-right: 2em;
-    padding-left: 2em;
-    padding-bottom: 1em;
-    text-shadow: 1px 1px black;
-    font-size: 1.25em;
-    margin-top: -1em;
+    font-size: 1.75em;
+    font-family: 'Cherry Cream Soda', cursive;
 }
 
 section {
@@ -56,10 +45,14 @@ section {
   overflow: hidden;
 }
 
+section:first-child {
+  margin-top: 1em;
+}
+
 section:last-child {
   margin-bottom: 4em;
-
 }
+
 
 section time {
   font-size: .7em;
