@@ -1,8 +1,10 @@
 $(document).ready( function() {
   loadHome();
-  $('nav').click(function() {
-    $(this).toggleClass('activeState');
-    $('.starfish img').slideToggle(350);
+  $('nav').click(function(event) {
+    if ($(window).width() < 640) {
+      $(this).toggleClass('activeState');
+      $('.starfish').slideToggle(350);
+    }
   });
 });
 
@@ -18,16 +20,13 @@ function loadProjects() {
   }
 
   BuildArticle.prototype.toHtml = function () { //defines ".toHtml" to "Article" just this one time; Reference.
-    var $newArticle = $('section.template').clone(); //"var $whatever" will contain a jQuery object.
-    $newArticle.removeClass();
-    $newArticle.find('time[pubdate]').attr('title', this.publishedDate);
-    $newArticle.find('h2').text(this.author);
-    $newArticle.find('time').html('published about ' + parseInt((new Date() - new Date(this.publishedDate))/60/60/24/1000) + ' days ago');
-    $newArticle.find('h1').text(this.title);
-    $newArticle.find('img').attr('src',this.img);
-    $newArticle.find('div.blogText').html(this.narrativeHTML);
+    this.daysAgo = parseInt((new Date() - new Date(this.publishedDate))/60/60/24/1000);
+    this.publishStatus = this.publishedDate ? 'published ' + this.daysAgo + ' days ago' : '(draft)';
 
-    return $newArticle;
+
+    var source = $('#blog-template').html();
+    var template = Handlebars.compile(source);
+    return template(this);
   };
 
   blogArticles.sort(function(a,b) { //check about .sort() on MDN
@@ -47,24 +46,6 @@ function loadProjects() {
   $button.addClass('collapsed');
   $('section').not('.template').append($button);
 
-  // $('div.blogText').find('p').nextAll().hide();
-  // var $button = $('<button>Read More</button>');
-  // $button.addClass('collapsed');
-  // $('section').append($button);
-  // $(document).on('click', '.collapsed', function() {
-  //   $(this).prev().find('p').nextAll().show();
-  //   $(this).text('Read More');
-  //   $(this).removeAttr('class');
-  //   $(this).addClass('expanded');
-  // });
-  //
-  // $(document).on('click', '.expanded', function() {
-  //   $(this).prev().find('p').nextAll().hide();
-  //   $(this).text('Show Less');
-  //   $(this).removeAttr('class');
-  //   $(this).addClass('collapsed');
-  // });
-
 }
 
 function loadHome() {
@@ -72,7 +53,7 @@ function loadHome() {
   var $img = $('<img>');
   $img.attr('src','images/dreamforce.jpg');
   var $h1 = $('<h1></h1>');
-  $h1.text('Welcome to my Professional Portfolio');
+  $h1.text('Professional Portfolio');
   var $body = $('<div class="blogText"></div>');
   $body.html('<p>On this site I will be displaying some of my technical projects that I worked on this summer. I will provide a description of each project for your context, as well as provide a link to each on github if you would like to view my souce code. All of these project have been built by me, or in a team, from sratch.</p>');
   $section.append($h1);
@@ -98,7 +79,7 @@ function loadBio() {
 function loadContacts() {
   var $section = $('<section></section>');
   var $form = $('<form><fieldset></fieldset></form>');
-  var $textarea = $('<textarea><textarea>');
+  var $textarea = $('<textarea placeholder="write something nice here.." ></textarea>');
   $form.append($textarea);
   var $h1 = $('<h1></h1>');
   $h1.text('Contact Me');
