@@ -2,20 +2,39 @@ img {
   max-width: 90%;
 }
 
-body {
+html {
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+    background-color: #444;
   /*background-color: #d3d3d3;*/
-  background-image: url("../images/sandBackground.jpg");
+  /*background-image: url("../images/ocean.jpg");*/
+  background-image: url("../images/wave-4 BW.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+/*background-size: 50% 50%;*/
+
+
 }
 
 header {
   width: 100%;
   display: inline-block;
-  background: linear-gradient(rgba(173,216,230,50),rgba(0,0,0,0));
+  height: 10em;
+  position: fixed;
+  top: 0;
+  /*background: linear-gradient(rgba(173,216,230,50),rgba(0,0,0,0));*/
+}
+
+main {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+
 }
 
 footer {
-
-  background: linear-gradient(rgba(0,0,0,0) ,rgba(185,156,107,75) 50%);
+  /*background: linear-gradient(rgba(0,0,0,0) ,#444 50%);*/
   position: fixed;
   bottom: 0px;
   width: 100%;

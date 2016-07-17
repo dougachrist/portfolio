@@ -26,6 +26,22 @@ nav li {
   border: 1px solid black;
 }
 
+.imgHome img {
+opacity: .5;
+width: 12em;
+margin-bottom: 10em;
+border: none;
+/*box-shadow: 0px 0px rgba(34,34,34,0.6);*/
+}
+
+.imgHome h1 {
+  color: whitesmoke;
+  opacity: .7;
+  font-size: 7vw;
+  clear: both;
+
+}
+
 @media only screen and (min-width: 640px) {
   .icon-menu {
     display: none;
