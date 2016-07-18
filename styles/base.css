@@ -1,3 +1,7 @@
+body {
+  min-width: 305px;
+}
+
 img {
   max-width: 90%;
 }
@@ -38,7 +42,13 @@ header {
   z-index: 10;
 }
 
+.header_inner {
+  max-width: 688px;
+  margin: 0 auto;
+}
+
 main {
+  min-width: 305px;
   position: absolute;
   top: 8em;
   bottom: 3em;
@@ -60,7 +70,8 @@ main {
 
 ::-webkit-scrollbar-thumb {
     width: 8px;
-    background: #000;
+    /*background: #000;*/
+    background: yellow;
     border-radius: 10px;
 }
 
