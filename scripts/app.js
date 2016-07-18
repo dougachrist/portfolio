@@ -3,14 +3,16 @@ $(document).ready( function() {
   $('nav').click(function(event) {
     if ($(window).width() < 640) {
       $(this).toggleClass('activeState');
+      console.log(this);
       $('.starfish').slideToggle(350);
     }
   });
 });
 
 function loadProjects() {
-  var allArticles = [];
 
+  var allArticles = [];
+  $('html').attr('class','projects');
   function BuildArticle (blogPost) {
     this.title = blogPost.title;
     this.img = blogPost.img;
@@ -49,16 +51,19 @@ function loadProjects() {
 }
 
 function loadHome() {
-  var $section = $('<section></section>');
+  var $section = $('<section class="imgHome"></section>'); // MAKE a DIV HERE
+  var $div = $('<div></div>');
   var $img = $('<img>');
-  $img.attr('src','images/dreamforce.jpg');
-  var $h1 = $('<h1></h1>');
-  $h1.text('Professional Portfolio');
-  var $body = $('<div class="blogText"></div>');
-  $body.html('<p>On this site I will be displaying some of my technical projects that I worked on this summer. I will provide a description of each project for your context, as well as provide a link to each on github if you would like to view my souce code. All of these project have been built by me, or in a team, from sratch.</p>');
-  $section.append($h1);
-  $section.append($img);
-  $section.append($body);
+  $img.attr('src','images/aboutMe.png');
+  var $h1Portfolio = $('<h1>PORTFOLIO</h1>');
+  // $h1.text('TECH PORTFOLIO');
+  // var $body = $('<div class="blogText"></div>');
+  // $body.html('<p>On this site I will be displaying some of my technical projects that I have worked on this summer. I will provide a description of each project and a link to each repo on github if you would like to view my souce code. All of these projects have been built by me, or in a team, from scratch.</p>');
+  $div.append($img);
+  $div.append($h1Portfolio);
+  $section.append($div);
+  $('html').attr('class','home');
+  // $section.append($body);
   $('main').append($section);
 }
 
@@ -69,10 +74,11 @@ function loadBio() {
   var $h1 = $('<h1></h1>');
   $h1.text('About Me');
   var $body = $('<div class="blogText"></div>');
-  $body.html('<p>Born in and rasied Santa Barbara, California - I will never lose my So. Cal roots although I now live in Seattle. I moved to Seattle in June of 2016 to start learning how to code at Code Fellows, a bootcamp for learning HMTL CSS and Javascript. Each day we work on a new project that will strech our limits and require us to discover something new about the the code . I love coding, and I will apply the skills I gain this summer when I start business school this Fall.</p>');
+  $body.html('<p>I was born and rasied Santa Barbara, California, and will never lose my So. Cal roots although I now live in Seattle. I moved to the Pacific North West in June of 2016 to start learning how to code at Code Fellows, a bootcamp for learning HMTL CSS and Javascript. Each day we work on a new project that challenges us to discover something new about the coding . I love coding, and will apply the skills I gain this summer when I start business school in the Fall.</p>');
   $section.append($h1);
   $section.append($img);
   $section.append($body);
+  $('html').attr('class','aboutMe');
   $('main').append($section);
 }
 
@@ -88,5 +94,6 @@ function loadContacts() {
   $section.append($h1);
   $section.append($h2);
   $section.append($form);
+  $('html').attr('class','contact');
   $('main').append($section);
 }

@@ -2,24 +2,73 @@ img {
   max-width: 90%;
 }
 
-body {
-  /*background-color: #d3d3d3;*/
-  background-image: url("../images/sandBackground.jpg");
+html {
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-color: #444;
+  /*background-image: url("../images/ocean.jpg");*/
+  background-image: url("../images/wave-4 BW.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+html.home {
+  background-image: url("../images/wave-4 BW.jpg");
+}
+
+html.aboutMe {
+  background-image: url("../images/wave-5.jpg");
+}
+
+html.contact {
+  background-image: url("../images/ocean.jpg");
+}
+
+html.projects {
+  background-image: url("../images/wave-9.jpg");
 }
 
 header {
   width: 100%;
   display: inline-block;
-  background: linear-gradient(rgba(173,216,230,50),rgba(0,0,0,0));
+  height: 8em;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+}
+
+main {
+  position: absolute;
+  top: 8em;
+  bottom: 3em;
+  right: 0;
+  left: 0;
+  width: 100%;
+  overflow-y: auto;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+	border-radius: 10px;
+	background-color: rgba(0,0,0,.3);
+}
+
+::-webkit-scrollbar-thumb {
+    width: 8px;
+    background: #000;
+    border-radius: 10px;
 }
 
 footer {
-
-  background: linear-gradient(rgba(0,0,0,0) ,rgba(185,156,107,75) 50%);
   position: fixed;
   bottom: 0px;
   width: 100%;
-  height: 5em;
+  height: 3em;
   text-align: center;
 }
 
