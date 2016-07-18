@@ -9,8 +9,13 @@ $(document).ready( function() {
 });
 
 function loadProjects() {
-  var allArticles = [];
 
+  $(window).scroll(function(){
+    $('section').css('opacity', 1 - $(window).scrollTop() / 350);
+  });
+
+  var allArticles = [];
+  $('html').attr('class','projects');
   function BuildArticle (blogPost) {
     this.title = blogPost.title;
     this.img = blogPost.img;
@@ -60,6 +65,7 @@ function loadHome() {
   $div.append($img);
   $div.append($h1Portfolio);
   $section.append($div);
+  $('html').attr('class','home');
   // $section.append($body);
   $('main').append($section);
 }
@@ -75,6 +81,7 @@ function loadBio() {
   $section.append($h1);
   $section.append($img);
   $section.append($body);
+  $('html').attr('class','aboutMe');
   $('main').append($section);
 }
 
@@ -90,5 +97,6 @@ function loadContacts() {
   $section.append($h1);
   $section.append($h2);
   $section.append($form);
+  $('html').attr('class','contact');
   $('main').append($section);
 }

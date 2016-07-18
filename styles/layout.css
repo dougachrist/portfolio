@@ -44,8 +44,6 @@ nav {
 }
 
 section {
-  /*background-color: rgba(255,255,255,.2);*/
-  /*box-shadow: 0 0 2em 2em rgba(255,255,255,.2);*/
   padding: .5em;
   width: 25em;
   margin: 0 auto;
@@ -63,6 +61,20 @@ section:last-child {
   margin-bottom: 4em;
 }
 
+.aboutMe section {
+  background-color: rgba(255,255,255,.8);
+  box-shadow: 0 0 2em 2em rgba(255,255,255,.8);
+}
+
+.projects section {
+  background-color: rgba(255,255,255,.8);
+  box-shadow: 0 0 2em 2em rgba(255,255,255,.8);
+}
+
+.contact section {
+  background-color: rgba(255,255,255,.8);
+  box-shadow: 0 0 2em 2em rgba(255,255,255,.8);
+}
 
 section time {
   font-size: .7em;
@@ -74,10 +86,6 @@ section img {
   max-width: 90%;
   cursor: pointer;
   border: .2em solid black;
-}
-
-section img:hover {
-  border: .2em solid orange;
 }
 
 .icon-menu {
