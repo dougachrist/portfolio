@@ -26,13 +26,13 @@ html.contact {
 }
 
 html.projects {
-  background-image: url("../images/wave-2.jpg");
+  background-image: url("../images/wave-9.jpg");
 }
 
 header {
   width: 100%;
   display: inline-block;
-  height: 10em;
+  height: 8em;
   position: fixed;
   top: 0;
   z-index: 10;
@@ -40,8 +40,8 @@ header {
 
 main {
   position: absolute;
-  top: 100px;
-  bottom: 50px;
+  top: 8em;
+  bottom: 3em;
   right: 0;
   left: 0;
   width: 100%;
@@ -68,7 +68,7 @@ footer {
   position: fixed;
   bottom: 0px;
   width: 100%;
-  height: 5em;
+  height: 3em;
   text-align: center;
 }
 

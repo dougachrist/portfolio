@@ -15,6 +15,10 @@ nav ul {
   list-style: none;
 }
 
+nav.activeState div.icon-menu {
+  font-size: .25em;
+}
+
 nav.activeState ul {
   display: block;
   float: right;
@@ -22,11 +26,12 @@ nav.activeState ul {
 
 nav li {
   text-align: center;
-  padding: .5em;
+  padding: .15em;
   border: 1px solid black;
 }
 
 .imgHome img {
+
 opacity: .5;
 width: 12em;
 margin-bottom: 10em;
@@ -79,22 +84,12 @@ border: none;
   }
 
   section {
-    text-align: left;
+    text-align: center;
     width: 80%;
     overflow: hidden;
-    margin-bottom: 2em;
   }
 
-  section:first-child {
-    margin-top: 4em;
-  }
-
-  section img {
-    margin-right: 1em;
-    float: left;
-  }
-
-  .blogText{
+    .blogText{
     float: none;
     display: inline;
   }

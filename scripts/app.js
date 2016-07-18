@@ -3,16 +3,13 @@ $(document).ready( function() {
   $('nav').click(function(event) {
     if ($(window).width() < 640) {
       $(this).toggleClass('activeState');
+      console.log(this);
       $('.starfish').slideToggle(350);
     }
   });
 });
 
 function loadProjects() {
-
-  $(window).scroll(function(){
-    $('section').css('opacity', 1 - $(window).scrollTop() / 350);
-  });
 
   var allArticles = [];
   $('html').attr('class','projects');
