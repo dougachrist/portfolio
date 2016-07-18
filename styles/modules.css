@@ -7,7 +7,7 @@ section h1 {
 
 .bottomBox li {
   display: inline;
-  margin: 10%;
+  margin: 5%;
 }
 
 nav ul {
@@ -92,6 +92,10 @@ border: none;
     .blogText{
     float: none;
     display: inline;
+  }
+
+  .bottomBox li {
+    margin: 10%;
   }
 }
 
