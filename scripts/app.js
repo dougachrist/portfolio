@@ -10,9 +10,8 @@ $(document).ready( function() {
 });
 
 function loadProjects() {
-
-  var allArticles = [];
   $('html').attr('class','projects');
+
   function BuildArticle (blogPost) {
     this.title = blogPost.title;
     this.img = blogPost.img;
@@ -21,28 +20,48 @@ function loadProjects() {
     this.author = blogPost.author;
   }
 
-  BuildArticle.prototype.toHtml = function () { //defines ".toHtml" to "Article" just this one time; Reference.
+  BuildArticle.all = [];
+
+  BuildArticle.prototype.toHtml = function (scriptTemplateId) {
+    var template = Handlebars.compile($(scriptTemplateId).text());
     this.daysAgo = parseInt((new Date() - new Date(this.publishedDate))/60/60/24/1000);
     this.publishStatus = this.publishedDate ? 'published ' + this.daysAgo + ' days ago' : '(draft)';
-
-
-    var source = $('#blog-template').html();
-    var template = Handlebars.compile(source);
     return template(this);
   };
 
-  blogArticles.sort(function(a,b) { //check about .sort() on MDN
-    return (new Date(b.publishedDate)) - (new Date(a.publishedDate));
-  });
+  BuildArticle.loadAll = function(dataWePassIn) {
+    dataWePassIn.sort(function(a,b) { //check about .sort() on MDN
+      return (new Date(b.publishedDate)) - (new Date(a.publishedDate));
+    }).forEach(function(ele) {
+      BuildArticle.all.push(new BuildArticle(ele));
+    });
+  };
 
-  blogArticles.forEach(function(ele) { //"ele" refers to each of the elements in local data; Placeholder.
-    allArticles.push(new BuildArticle(ele));
-  });
+  function renderArticles() {
+    BuildArticle.all.forEach(function(a) {
+      $('main').append(a.toHtml('#blog-template'));
+    });
+  }
 
-  allArticles.forEach(function(a) {
-    $('main').append(a.toHtml());
-  });
+  BuildArticle.fetchAll = function() {
+    if(localStorage.blogArticles) {
+      console.log('TRUE case runs');
+      var localBlogs = JSON.parse(localStorage.blogArticles);
+      BuildArticle.loadAll(localBlogs);
+      renderArticles();
+    } else {
+      console.log('else case runs');
+      $.getJSON('data/blogData.json', function(data) {
+        localStorage.blogArticles = JSON.stringify(data);
+        BuildArticle.loadAll(data);
+        renderArticles();
+      });
+    }
+  };
 
+  BuildArticle.fetchAll();
+
+    // show more / less button
   $('div.blogText').find('p').nextAll().hide();
   var $button = $('<button>Read More</button>');
   $button.addClass('collapsed');
