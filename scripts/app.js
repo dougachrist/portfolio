@@ -45,17 +45,28 @@ function loadProjects() {
 
   BuildArticle.fetchAll = function() {
 
-    // function checkETag() {
-    //   $.ajax('data/blogData.json').done(function(data, textStatus, jqXHR) {
-    //     return (jqXHR.getResponseHeader('ETag'));
-    //   });
-    // }
+    function checkETag() {
+      $.ajax('data/blogData.json').done(function(data, textStatus, jqXHR) {
+        console.log(jqXHR.getResponseHeader('ETag'));
+        return (jqXHR.getResponseHeader('ETag'));
+      });
+    }
 
-    if(localStorage.blogArticles) {
-      var localBlogs = JSON.parse(localStorage.blogArticles);
-      BuildArticle.loadAll(localBlogs);
-      renderArticles();
+    if(localStorage.ETagBlog) {
+
+      if(localStorage.ETagBlog === checkETag()) {
+        var localBlogs = JSON.parse(localStorage.blogArticles);
+        BuildArticle.loadAll(localBlogs);
+        renderArticles();
+      } else {
+        $.getJSON('data/blogData.json', function(data) {
+          localStorage.blogArticles = JSON.stringify(data);
+          BuildArticle.loadAll(data);
+          renderArticles();
+        });
+      }
     } else {
+      localStorage.ETagBlog = checkETag();
       $.getJSON('data/blogData.json', function(data) {
         localStorage.blogArticles = JSON.stringify(data);
         BuildArticle.loadAll(data);
