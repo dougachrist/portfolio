@@ -45,18 +45,17 @@ function loadProjects() {
 
   BuildArticle.fetchAll = function() {
 
-    $.ajax('data/blogData.json').done(function(data, textStatus, jqXHR) {
-      console.log(jqXHR.getAllResponseHeaders().contains('e73-15601cea0b0'));
-    });
-
+    // function checkETag() {
+    //   $.ajax('data/blogData.json').done(function(data, textStatus, jqXHR) {
+    //     return (jqXHR.getResponseHeader('ETag'));
+    //   });
+    // }
 
     if(localStorage.blogArticles) {
-      console.log('TRUE case runs');
       var localBlogs = JSON.parse(localStorage.blogArticles);
       BuildArticle.loadAll(localBlogs);
       renderArticles();
     } else {
-      console.log('else case runs');
       $.getJSON('data/blogData.json', function(data) {
         localStorage.blogArticles = JSON.stringify(data);
         BuildArticle.loadAll(data);
