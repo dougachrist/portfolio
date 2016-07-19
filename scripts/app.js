@@ -44,6 +44,12 @@ function loadProjects() {
   }
 
   BuildArticle.fetchAll = function() {
+
+    $.ajax('data/blogData.json').done(function(data, textStatus, jqXHR) {
+      console.log(jqXHR.getAllResponseHeaders().contains('e73-15601cea0b0'));
+    });
+
+
     if(localStorage.blogArticles) {
       console.log('TRUE case runs');
       var localBlogs = JSON.parse(localStorage.blogArticles);
