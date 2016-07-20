@@ -20,7 +20,7 @@ function loadProjects() {
     this.author = blogPost.author;
   }
 
-  BuildArticle.all = [];
+  BuildArticle.allArticles = [];
 
   BuildArticle.prototype.toHtml = function (scriptTemplateId) {
     var template = Handlebars.compile($(scriptTemplateId).text());
@@ -33,15 +33,87 @@ function loadProjects() {
     dataWePassIn.sort(function(a,b) { //check about .sort() on MDN
       return (new Date(b.publishedDate)) - (new Date(a.publishedDate));
     }).forEach(function(ele) {
-      BuildArticle.all.push(new BuildArticle(ele));
+      BuildArticle.allArticles.push(new BuildArticle(ele));
     });
   };
 
   function renderArticles() {
-    BuildArticle.all.forEach(function(a) {
+    BuildArticle.allArticles.forEach(function(a) {
       $('main').append(a.toHtml('#blog-template'));
     });
   }
+
+  BuildArticle.allAuthors = function() {
+    var authors = BuildArticle.allArticles.map(function(currentArticle) {
+      return currentArticle.author;
+    })
+    .reduce(function(uniqueAuthors, currentAuthor, index, array) {
+      if(uniqueAuthors.indexOf(currentAuthor) === -1) {
+        uniqueAuthors.push(currentAuthor);
+      }
+      return uniqueAuthors;
+    }, []);
+    return authors;
+  };
+
+  BuildArticle.numWordsAll = function() {
+    return BuildArticle.allArticles.map(function(article) {
+      return article.narrativeHTML.match(/\w+/g).length;
+    })
+    .reduce(function(accumulator, current) {
+      return accumulator + current;
+    });
+  };
+
+  BuildArticle.numWordsByAuthor = function() {
+    return BuildArticle.allAuthors().map(function(authorName) {
+      return {
+        name: authorName,
+        numWords: BuildArticle.allArticles.filter(function(curArticle) {
+          return curArticle.author === authorName;
+        })
+        .map(function(curArticle) {
+          return curArticle.narrativeHTML.match(/\w+/g).length;
+        }) // use .map to return the author's word count for each article's body (hint: regexp!).
+        .reduce(function(accum, current) {
+          return accum + current;
+        }, 0) // squash this array of numbers into one big number!
+      };
+    });
+  };
+
+  BuildArticle.hawaiiUsed = function() {
+    return BuildArticle.allArticles.map(function(article) {
+      if(article.narrativeHTML.match(/Hawaii/g)) {
+        return article.narrativeHTML.match(/Hawaii/g).length;
+      } else {
+        return 0;
+      }
+    })
+    .reduce(function(accum, current) {
+      return accum + current;
+    }, 0);
+  };
+
+
+
+  BuildArticle.initAdminPage = function() {
+    var template = Handlebars.compile($('#author-template').html());
+
+    BuildArticle.numWordsByAuthor().forEach(function(stat) {
+      $('.author-stats').append(template(stat));
+    });
+    $('#blog-stats .articles').text(BuildArticle.allArticles.length);
+    $('#blog-stats .words').text(BuildArticle.numWordsAll());
+    $('#blog-stats .hawaiiUsed').text(BuildArticle.hawaiiUsed());
+  };
+
+  $.getJSON('data/blogData.json', function(data) {
+    localStorage.blogArticles = JSON.stringify(data);
+    BuildArticle.loadAll(data);
+    BuildArticle.initAdminPage();
+  });
+
 
   BuildArticle.fetchAll = function() {
 
