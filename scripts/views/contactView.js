@@ -18,5 +18,5 @@
     }
   };
 
-module.loadContact = loadContact;
+  module.loadContact = loadContact;
 })(window);

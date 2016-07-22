@@ -10,31 +10,22 @@
 
   };
 
-  projectsView.handleMainNav = function() {
-      // loadHome();
-    $('nav').click(function(event) {
-      if ($(window).width() < 640) {
-        $(this).toggleClass('activeState');
-        console.log(this);
-        $('.starfish').slideToggle(350);
-      }
-    });
-  };
-
   projectsView.setTeasers = function() {
-
+    $('div.blogText').find('p').nextAll().hide();
+    var $button = $('<button>Read More</button>');
+    $button.addClass('collapsed');
+    $('section').not('.template').append($button);
   };
 
   projectsView.renderIndexPage = function() {
-
+    BuildArticle.allArticles.forEach(function(a) {
+      $('main').append(a.toHtml('#blog-template'));
+    });
+    projectsView.setTeasers();
   };
 
-  projectsView.handleCategoryFilter();
-  projectsView.handleAuthorFilter();
-  projectsView.handleMainNav();
-  projectsView.setTeasers();
-
-  BuildArticle.fetchAll(projectsView.renderIndexPage);
+  // projectsView.handleCategoryFilter();
+  // projectsView.handleAuthorFilter();
 
   module.projectsView = projectsView;
 })(window);
