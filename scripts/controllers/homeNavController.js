@@ -3,46 +3,22 @@ $(document).ready( function() {
   loadHome.render();
 });
 
-$(document).ready( function() {
-  $('li[data-content=home]').on('click',function() {
-    $('section').not('.template').remove();
-    loadHome.render();
-  });
-});
+$(document).on('click', 'li', loadWhatWasClicked);
 
-$(document).ready( function() {
-  $(document).on('click', 'li[data-content=projects]', function() {
-    $('section').not('.template').remove();
-    console.log('load projects');
-    BuildArticle.fetchAll(projectsView.renderIndexPage);
-
-    $(document).on('click', '.collapsed', function() {
-      $(this).prev().find('p').nextAll().show();
-      $(this).text('Show Less');
-      $(this).removeAttr('class');
-      $(this).addClass('expanded');
-    });
-
-    $(document).on('click', '.expanded', function() {
-      $(this).prev().find('p').nextAll().hide();
-      $(this).text('Read More');
-      $(this).removeAttr('class');
-      $(this).addClass('collapsed');
-    });
-  });
-});
-
-
-$(document).ready( function() {
-  $('li[data-content=contact]').on('click',function() {
-    $('section').not('.template').remove();
-    loadContact.render();
-  });
-});
-
-$(document).ready( function() {
-  $('li[data-content=bio]').on('click',function() {
-    $('section').not('.template').remove();
+function loadWhatWasClicked () {
+  $('section').not('.template').remove();
+  if($(this).data().content === 'bio') {
     loadAboutMe.render();
-  });
-});
+  }
+  if($(this).data().content === 'contact') {
+    loadContact.render();
+  }
+  if($(this).data().content === 'home') {
+    loadHome.render();
+  }
+  if($(this).data().content === 'projects') {
+    BuildArticle.fetchAll(projectsView.renderIndexPage);
+    $(document).on('click', '.collapsed', projectsView.renderShowLessButton);
+    $(document).on('click', '.expanded', projectsView.renderReadMoreButton);
+  }
+}

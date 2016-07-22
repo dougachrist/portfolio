@@ -25,7 +25,7 @@
     });
   };
 
-  BuildArticle.fetchAll = function() {
+  BuildArticle.fetchAll = function(nextFunction) {
 
     function checkETag() {
       $.ajax('data/blogData.json').done(function(data, textStatus, jqXHR) {
@@ -40,14 +40,14 @@
         var localBlogs = JSON.parse(localStorage.blogArticles);
         console.log('option1');
         BuildArticle.loadAll(localBlogs);
-        projectsView.renderIndexPage();
+        nextFunction();
       } else {
         $.getJSON('data/blogData.json', function(data) {
           localStorage.blogArticles = JSON.stringify(data);
           localStorage.ETagBlog = checkETag();
           console.log('option2');
           BuildArticle.loadAll(data);
-          projectsView.renderIndexPage();
+          nextFunction();
         });
       }
     } else {
@@ -56,7 +56,7 @@
         localStorage.blogArticles = JSON.stringify(data);
         console.log('option3');
         BuildArticle.loadAll(data);
-        projectsView.renderIndexPage();
+        nextFunction();
       });
     }
   };
