@@ -21,6 +21,7 @@ function loadWhatWasClicked () {
     break;
   case 'admin':
     BuildArticle.fetchAll(adminView.renderAdminPage);
+    break;
   case 'projects':
     BuildArticle.fetchAll(projectsView.renderIndexPage);
     $(document).on('click', '.collapsed', projectsView.renderShowLessButton);
