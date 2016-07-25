@@ -23,6 +23,18 @@
         </div>
       </section>
     </script>
+    <script id="admin-template" type="text/x-handlebars-template">
+    <section id="blog-stats">
+      <h1>Admin Page</h1>
+      <dt>Total articles:</dt> <dd class="articles"></dd>
+      <dt>Total words:</dt> <dd class="words"></dd>
+      <dt>Times Hawaii used:</dt> <dd class="hawaiiUsed"></dd>
+      <h2>Author Stats</h2>
+      <p><em>Details on who is writing, and how much writing they are doing...</em></p>
+      <ul class="author-stats">
+      </ul>
+    </section>
+    </script>
   </head>
   <body>
     <header>
@@ -30,10 +42,10 @@
         <div class="myName">
           <h1><div>DOUG</div><div>CHRIST</div></h1>
           <div class="starfish">
-            <img src="images/starfish.jpg">
+            <img src="images/starfish.jpg" data-content="admin">
           </div>
           <div class="secondStarfish">
-            <img src="images/starfish.jpg">
+            <img src="images/starfish.jpg" data-content="admin">
           </div>
         </div>
         <nav>
@@ -63,11 +75,13 @@
     <script src="vendor/scripts/jquery-1.12.4.min.js"></script>
     <script src="vendor/scripts/handlebars-v4.0.5.js"></script>
     <script src="scripts/models/app.js"></script>
+    <script src="scripts/models/adminData.js"></script>
     <script src="scripts/views/mainNavView.js"></script>
     <script src="scripts/views/homeView.js"></script>
     <script src="scripts/views/projectsView.js"></script>
     <script src="scripts/views/aboutMeView.js"></script>
     <script src="scripts/views/contactView.js"></script>
+    <script src="scripts/views/adminView.js"></script>
     <script src="scripts/controllers/homeNavController.js"></script>
   </body>
 </html>

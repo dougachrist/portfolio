@@ -3,22 +3,28 @@ $(document).ready( function() {
   loadHome.render();
 });
 
+$(document).on('click', 'img', loadWhatWasClicked);
 $(document).on('click', 'li', loadWhatWasClicked);
 
 function loadWhatWasClicked () {
+  console.log($(this).data().content);
   $('section').not('.template').remove();
-  if($(this).data().content === 'bio') {
+  switch($(this).data().content) {
+  case 'bio':
     loadAboutMe.render();
-  }
-  if($(this).data().content === 'contact') {
+    break;
+  case 'contact':
     loadContact.render();
-  }
-  if($(this).data().content === 'home') {
+    break;
+  case 'home':
     loadHome.render();
-  }
-  if($(this).data().content === 'projects') {
+    break;
+  case 'admin':
+    BuildArticle.fetchAll(adminView.renderAdminPage);
+  case 'projects':
     BuildArticle.fetchAll(projectsView.renderIndexPage);
     $(document).on('click', '.collapsed', projectsView.renderShowLessButton);
     $(document).on('click', '.expanded', projectsView.renderReadMoreButton);
+    break;
   }
 }

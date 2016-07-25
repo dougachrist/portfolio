@@ -12,7 +12,14 @@
       $('#blog-stats .hawaiiUsed').text(BuildArticle.hawaiiUsed());
     }
   };
-  BuildArticle.fetchAll(adminView.render);
+
+  adminView.renderAdminPage = function() {
+    var template = Handlebars.compile($('#admin-template').html());
+    BuildArticle.numWordsByAuthor().forEach(function(stat) {
+      $('.author-stats').append(template(stat));
+    });
+
+  };
 
   module.adminView = adminView;
 })(window);
