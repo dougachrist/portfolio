@@ -32,11 +32,14 @@
   };
 
   projectsView.renderIndexPage = function() {
+    $('section').not('.template').remove();
     BuildArticle.allArticles.forEach(function(a) {
       $('main').append(a.toHtml('#blog-template'));
       $('html').attr('class','projects');
     });
     projectsView.setTeasers();
+    $(document).on('click', '.collapsed', projectsView.renderShowLessButton);
+    $(document).on('click', '.expanded', projectsView.renderReadMoreButton);
   };
 
   // projectsView.handleCategoryFilter();

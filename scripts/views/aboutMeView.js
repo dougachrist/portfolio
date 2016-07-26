@@ -2,6 +2,7 @@
 
   var loadAboutMe = {
     render: function () {
+      $('section').not('.template').remove();
       var $section = $('<section></section>');
       var $img = $('<img>');
       $img.attr('src','images/aboutMe.jpg');
