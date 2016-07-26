@@ -8,8 +8,6 @@
     this.author = blogPost.author;
   }
 
-  BuildArticle.allArticles = [];
-
   BuildArticle.prototype.toHtml = function (scriptTemplateId) {
     var template = Handlebars.compile($(scriptTemplateId).text());
     this.daysAgo = parseInt((new Date() - new Date(this.publishedDate))/60/60/24/1000);
@@ -26,6 +24,7 @@
   };
 
   BuildArticle.fetchAll = function(nextFunction) {
+    BuildArticle.allArticles = [];
 
     function checkETag() {
       $.ajax('data/blogData.json').done(function(data, textStatus, jqXHR) {
