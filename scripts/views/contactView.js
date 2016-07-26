@@ -3,9 +3,11 @@
   var loadContact = {
     render : function() {
       var $section = $('<section></section>');
-      var $form = $('<form><fieldset></fieldset></form>');
-      var $textarea = $('<textarea placeholder="write something nice here.." ></textarea>');
+      var $form = $('<form id="formData"><fieldset></fieldset></form>');
+      var $textarea = $('<textarea id="comment" placeholder="write something nice here.." ></textarea>');
+      var $submit =$('<input type="submit" value="Send">');
       $form.append($textarea);
+      $form.append($submit);
       var $h1 = $('<h1></h1>');
       $h1.text('Contact Me');
       var $h2 = $('<h2></h2>');
@@ -17,6 +19,8 @@
       $('main').append($section);
     }
   };
+
+
 
   module.loadContact = loadContact;
 })(window);

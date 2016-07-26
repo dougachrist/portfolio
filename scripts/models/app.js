@@ -8,8 +8,6 @@
     this.author = blogPost.author;
   }
 
-  BuildArticle.allArticles = [];
-
   BuildArticle.prototype.toHtml = function (scriptTemplateId) {
     var template = Handlebars.compile($(scriptTemplateId).text());
     this.daysAgo = parseInt((new Date() - new Date(this.publishedDate))/60/60/24/1000);
@@ -25,40 +23,26 @@
     });
   };
 
-  BuildArticle.fetchAll = function() {
+  BuildArticle.fetchAll = function(nextFunction) {
+    BuildArticle.allArticles = [];
 
-    function checkETag() {
-      $.ajax('data/blogData.json').done(function(data, textStatus, jqXHR) {
-        console.log(typeof(jqXHR.getResponseHeader('ETag')));
-        return (jqXHR.getResponseHeader('ETag'));
-      });
-    }
-
-    if(localStorage.ETagBlog) {
-
-      if(localStorage.ETagBlog === checkETag()) {
-        var localBlogs = JSON.parse(localStorage.blogArticles);
-        console.log('option1');
-        BuildArticle.loadAll(localBlogs);
-        projectsView.renderIndexPage();
-      } else {
-        $.getJSON('data/blogData.json', function(data) {
+    $.ajax({
+      url: 'data/blogData.json',
+      success: function(data, message, xhr) {
+        var eTag = xhr.getResponseHeader('eTag');
+        var blogDataPull = data;
+        if(!localStorage.eTag || eTag !== localStorage.eTag) {
+          localStorage.eTag = JSON.stringify(eTag);
           localStorage.blogArticles = JSON.stringify(data);
-          localStorage.ETagBlog = checkETag();
-          console.log('option2');
           BuildArticle.loadAll(data);
-          projectsView.renderIndexPage();
-        });
+          nextFunction();
+        } else {
+          var localBlogs = JSON.parse(localStorage.blogArticles);
+          BuildArticle.loadAll(localBlogs);
+          nextFunction();
+        }
       }
-    } else {
-      localStorage.ETagBlog = checkETag();
-      $.getJSON('data/blogData.json', function(data) {
-        localStorage.blogArticles = JSON.stringify(data);
-        console.log('option3');
-        BuildArticle.loadAll(data);
-        projectsView.renderIndexPage();
-      });
-    }
+    });
   };
 
   module.BuildArticle = BuildArticle;

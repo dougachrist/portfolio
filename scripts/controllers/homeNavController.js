@@ -3,46 +3,33 @@ $(document).ready( function() {
   loadHome.render();
 });
 
-$(document).ready( function() {
-  $('li[data-content=home]').on('click',function() {
-    $('section').not('.template').remove();
-    loadHome.render();
-  });
-});
+$(document).on('click', 'img.egg', loadWhatWasClicked);
+$(document).on('click', 'li', loadWhatWasClicked);
 
-$(document).ready( function() {
-  $(document).on('click', 'li[data-content=projects]', function() {
-    $('section').not('.template').remove();
-    console.log('load projects');
-    BuildArticle.fetchAll(projectsView.renderIndexPage);
-
-    $(document).on('click', '.collapsed', function() {
-      $(this).prev().find('p').nextAll().show();
-      $(this).text('Show Less');
-      $(this).removeAttr('class');
-      $(this).addClass('expanded');
-    });
-
-    $(document).on('click', '.expanded', function() {
-      $(this).prev().find('p').nextAll().hide();
-      $(this).text('Read More');
-      $(this).removeAttr('class');
-      $(this).addClass('collapsed');
-    });
-  });
-});
-
-
-$(document).ready( function() {
-  $('li[data-content=contact]').on('click',function() {
-    $('section').not('.template').remove();
-    loadContact.render();
-  });
-});
-
-$(document).ready( function() {
-  $('li[data-content=bio]').on('click',function() {
-    $('section').not('.template').remove();
+function loadWhatWasClicked () {
+  console.log($(this).data().content);
+  $('section').not('.template').remove();
+  switch($(this).data().content) {
+  case 'bio':
     loadAboutMe.render();
-  });
-});
+    break;
+  case 'contact':
+    loadContact.render();
+    $('#formData').submit(function(event) {
+      event.preventDefault();
+      $('#comment').val('');
+    });
+    break;
+  case 'home':
+    loadHome.render();
+    break;
+  case 'admin':
+    BuildArticle.fetchAll(adminView.renderAdminPage);
+    break;
+  case 'projects':
+    BuildArticle.fetchAll(projectsView.renderIndexPage);
+    $(document).on('click', '.collapsed', projectsView.renderShowLessButton);
+    $(document).on('click', '.expanded', projectsView.renderReadMoreButton);
+    break;
+  }
+}

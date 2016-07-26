@@ -26,9 +26,16 @@
     return BuildArticle.allAuthors().map(function(authorName) {
       return {
         name: authorName,
+        postWritten: BuildArticle.allArticles.filter(function(curArticle) {
+          return curArticle.author === authorName;})
+          .map(function() {
+            return 1;
+          })
+          .reduce(function(accum, current) {
+            return accum + current;
+          }, 0),
         numWords: BuildArticle.allArticles.filter(function(curArticle) {
-          return curArticle.author === authorName;
-        })
+          return curArticle.author === authorName;})
         .map(function(curArticle) {
           return curArticle.narrativeHTML.match(/\w+/g).length;
         }) // use .map to return the author's word count for each article's body (hint: regexp!).
@@ -52,11 +59,11 @@
     }, 0);
   };
 
-  $.getJSON('data/blogData.json', function(data) {
-    localStorage.blogArticles = JSON.stringify(data);
-    BuildArticle.loadAll(data);
-    adminView.render();
-  });
+  // $.getJSON('data/blogData.json', function(data) {
+  //   localStorage.blogArticles = JSON.stringify(data);
+  //   BuildArticle.loadAll(data);
+  //   adminView.render();
+  // });
 
   module.BuildArticle = BuildArticle;
 })(window);
