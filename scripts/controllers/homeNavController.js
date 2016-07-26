@@ -3,7 +3,7 @@ $(document).ready( function() {
   loadHome.render();
 });
 
-$(document).on('click', 'img', loadWhatWasClicked);
+$(document).on('click', 'img.egg', loadWhatWasClicked);
 $(document).on('click', 'li', loadWhatWasClicked);
 
 function loadWhatWasClicked () {
@@ -15,6 +15,10 @@ function loadWhatWasClicked () {
     break;
   case 'contact':
     loadContact.render();
+    $('#formData').submit(function(event) {
+      event.preventDefault();
+      $('#comment').val('');
+    });
     break;
   case 'home':
     loadHome.render();
