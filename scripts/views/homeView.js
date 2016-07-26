@@ -2,6 +2,7 @@
 
   var loadHome = {
     render: function () {
+      $('section').not('.template').remove();
       var $section = $('<section class="imgHome"></section>'); // MAKE a DIV HERE
       var $div = $('<div></div>');
       var $img = $('<img>');

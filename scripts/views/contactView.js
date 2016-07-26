@@ -2,6 +2,7 @@
 
   var loadContact = {
     render : function() {
+      $('section').not('.template').remove();
       var $section = $('<section></section>');
       var $form = $('<form id="formData"><fieldset></fieldset></form>');
       var $textarea = $('<textarea id="comment" placeholder="write something nice here.." ></textarea>');
@@ -17,6 +18,12 @@
       $section.append($form);
       $('html').attr('class','contact');
       $('main').append($section);
+
+      $('#formData').submit(function(event) {
+        event.preventDefault();
+        $('#comment').val('');
+      });
+
     }
   };
 

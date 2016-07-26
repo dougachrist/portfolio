@@ -2,19 +2,9 @@
 
 
   var adminView = {};
-  //   render : function() {
-  //     var template = Handlebars.compile($('#author-template').html());
-  //     BuildArticle.numWordsByAuthor().forEach(function(stat) {
-  //       $('.author-stats').append(template(stat));
-  //     });
-  //     $('#blog-stats .articles').text(BuildArticle.allArticles.length);
-  //     $('#blog-stats .words').text(BuildArticle.numWordsAll());
-  //     $('#blog-stats .hawaiiUsed').text(BuildArticle.hawaiiUsed());
-  //   }
-  // };
 
   adminView.renderAdminPage = function() {
-
+    $('section').not('.template').remove();
     var $section = $('<section id="blog-stats"></section>');
     var $h1 = $('<h1></h1>');
     $h1.text('Admin Page');
@@ -36,7 +26,6 @@
     $('html').attr('class','aboutMe');
     $('main').append($section);
 
-
     var template = Handlebars.compile($('#admin-template').html());
     BuildArticle.numWordsByAuthor().forEach(function(stat) {
       $('.author-stats').append(template(stat));
@@ -48,15 +37,3 @@
 
   module.adminView = adminView;
 })(window);
-
-
-// BuildArticle.initAdminPage = function() {  // Admin stuff
-//   var template = Handlebars.compile($('#author-template').html());
-//
-//   BuildArticle.numWordsByAuthor().forEach(function(stat) {
-//     $('.author-stats').append(template(stat));
-//   });
-//   $('#blog-stats .articles').text(BuildArticle.allArticles.length);
-//   $('#blog-stats .words').text(BuildArticle.numWordsAll());
-//   $('#blog-stats .hawaiiUsed').text(BuildArticle.hawaiiUsed());
-// };
