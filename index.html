@@ -27,9 +27,13 @@
         <li><strong>{{name}}</strong>: {{postWritten}} post written and {{numWords}} words</li>
     </script>
     <script id="repo-template" type="text/x-handlebars-template">
-      <section class="repoSection">
-        <h1>{{name}}</h1>
-      </section>
+      <h1>{{name}}</h1>
+      <h2>Stargazer Count: {{stargazers_count}}</h2>
+      <h2>Repo link: {{svn_url}}</h2>
+      <h2>Depolyment link: https://dougachrist.github.io/{{name}}</h2>
+      <div class="wrapper">
+        <iframe class="frame" src="https://dougachrist.github.io/{{name}}"></iframe>
+      </div>
     </script>
   </head>
   <body>

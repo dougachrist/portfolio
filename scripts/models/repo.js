@@ -6,8 +6,8 @@
   reposObj.requestRepos = function(nextFunction) {
     reposObj.allRepos = [];
     $.ajax({
-      url: 'https://api.github.com/users/codefellows/repos' +
-           '?per_page=5' +
+      url: 'https://api.github.com/users/dougachrist/repos' +
+           '?per_page=100' +
            '&sort=update',
       type: 'GET',
       headers: {
@@ -23,7 +23,7 @@
 
   reposObj.withTheAttribute = function(myAttr) {
     return reposObj.allRepos.filter(function(aRepo) {
-      return aRepo[myAttr] === 0;
+      return aRepo[myAttr];
     });
   };
 
