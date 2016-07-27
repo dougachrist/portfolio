@@ -46,9 +46,14 @@ nav {
 section {
   width: 25em;
   margin: 0 auto;
+  margin-bottom: 3em;
   text-align: center;
   max-width: 90%;
   overflow: hidden;
+}
+
+section:first-child {
+  margin-top: 5em;
 }
 
 .aboutMe section {

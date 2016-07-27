@@ -26,6 +26,11 @@
     <script id="admin-template" type="text/x-handlebars-template">
         <li><strong>{{name}}</strong>: {{postWritten}} post written and {{numWords}} words</li>
     </script>
+    <script id="repo-template" type="text/x-handlebars-template">
+      <section class="repoSection">
+        <h1>{{name}}</h1>
+      </section>
+    </script>
   </head>
   <body>
     <header>
@@ -42,6 +47,7 @@
         <nav>
           <div class ="icon-menu"></div>
           <ul>
+            <li class="tab" data-content="repo"><a href="/repo" class="icon-envelop">Github Repos</a></li>
             <li class="tab" data-content="contact"><a href="/contact" class="icon-envelop">Contact</a></li>
             <li class="tab" data-content="bio"><a href="/bio" class="icon-user-tie">Bio</a></li>
             <li class="tab" data-content="projects"><a href="/projects" class="icon-newspaper">Projects</a></li>
@@ -66,6 +72,8 @@
     <script src="vendor/scripts/page.js"></script>
     <script src="vendor/scripts/jquery-1.12.4.min.js"></script>
     <script src="vendor/scripts/handlebars-v4.0.5.js"></script>
+    <script src="scripts/assets/githubToken.js"></script>
+    <script src="scripts/models/repo.js"></script>
     <script src="scripts/models/app.js"></script>
     <script src="scripts/models/adminData.js"></script>
     <script src="scripts/views/mainNavView.js"></script>
@@ -74,6 +82,7 @@
     <script src="scripts/views/aboutMeView.js"></script>
     <script src="scripts/views/contactView.js"></script>
     <script src="scripts/views/adminView.js"></script>
+    <script src="scripts/views/repoView.js"></script>
     <script src="scripts/controllers/homeNavController.js"></script>
     <script src="scripts/controllers/router.js"></script>
   </body>
