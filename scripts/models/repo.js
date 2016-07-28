@@ -7,7 +7,7 @@
     reposObj.allRepos = [];
     $.get('/github/users/dougachrist/repos' +
            '?per_page=100' +
-           '&sort=update')
+           '&sort=updated')
       .done(function(data) {
         reposObj.allRepos = data;
         // data.forEach(function(elem) {
