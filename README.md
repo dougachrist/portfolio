@@ -27,3 +27,7 @@ but this method is deprecated (you can see the list of all deprecated method her
 $(document).on('click', 'selector', function(){
      // Your Code
  });
+
+
+ iframe display in CSS:
+ http://carsonfarmer.com/2012/08/cross-browser-iframe-scaling/

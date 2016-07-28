@@ -92,6 +92,13 @@ a:link, a:visited {
   color: black;
 }
 
+h1 {
+  font-size: 2.5em;
+  margin: 0 auto .5em auto;
+  text-align: center;
+  font-family: 'Candal', sans-serif;
+}
+
 h2 {
   font-family: 'Rasa', serif;
   font-size: 1.75em;
@@ -100,4 +107,27 @@ h2 {
 p {
   font-family: 'Rasa', serif;
   font-size: 1.5em;
+}
+
+.wrapper {
+    margin: 0 auto;
+    width: 90%;
+    height: 300px;
+    padding: 0;
+    overflow: hidden;
+}
+.frame {
+    -ms-zoom: 0.5;
+    -ms-transform-origin: 0 0;
+    -moz-transform: scale(0.5);
+    -moz-transform-origin: 0px 50px;
+    -o-transform: scale(0.5);
+    -o-transform-origin: 0px 50px;
+    -webkit-transform: scale(0.5);
+    -webkit-transform-origin: 0 0;
+}
+.frame {
+    width: 200%;
+    height: 530px;
+    overflow: hidden;
 }

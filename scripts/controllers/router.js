@@ -3,6 +3,8 @@ page('/bio', aboutMe);
 page('/contact', contact);
 page('/projects' , projects);
 page('/admin', admin);
+page('/repo', repo);
+page('*', home);
 page();
 
 function home() {
@@ -23,4 +25,8 @@ function projects() {
 
 function admin() {
   BuildArticle.fetchAll(adminView.renderAdminPage);
+}
+
+function repo() {
+  reposObj.requestRepos(repoView.renderRepos);
 }
