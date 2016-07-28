@@ -9,9 +9,9 @@
            '?per_page=100' +
            '&sort=updated')
       .done(function(data) {
-        reposObj.allRepos = data;
-        // data.forEach(function(elem) {
-        //   reposObj.allRepos.push(elem);
+        data.forEach(function(elem) {
+          reposObj.allRepos.push(elem);
+        });
       }).done(nextFunction);
 
   };
