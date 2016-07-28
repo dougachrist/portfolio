@@ -3,7 +3,7 @@ var express = require('express'),
   port = process.env.PORT || 3000,
   app = express();
 
-var proxyGitHub = function(request, reponse){
+var proxyGitHub = function(request, response){
   (
     requestProxy({
       url: 'https://api.github.com/' + request.param[0],

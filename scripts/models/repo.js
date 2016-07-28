@@ -9,10 +9,11 @@
            '?per_page=100' +
            '&sort=update')
       .done(function(data) {
-        data.forEach(function(elem) {
-          reposObj.allRepos.push(elem);
-        });
+        reposObj.allRepos = data;
+        // data.forEach(function(elem) {
+        //   reposObj.allRepos.push(elem);
       }).done(nextFunction);
+
   };
 
   reposObj.withTheAttribute = function(myAttr) {
